@@ -26,6 +26,10 @@
                 </button>
                 <form action="/" method="post">
                      <span class="self-center text-xl font-semibold sm:text-2xl whitespace-nowrap dark:text-white">Dynamic DB Crud Operation</span>
+                    <?php
+                    if (isset($_SESSION['dbname'])): ?>
+                       <span  class="self-center text-l font-semibold sm:text-2xl whitespace-nowrap dark:text-white" >Hello, <?= $_SESSION['dbname'] ?></span>
+                    <?php endif; ?>
                 </form>
             </div>
             <div class="flex items-center">
@@ -64,7 +68,8 @@
             </form>
         </ul>
         <ul class="space-y-2 font-medium">
-            <form action="/addRow" method="post">
+            <form action="/create_data" method="post">
+<!--            <form action="/addRow" method="post">-->
                 <button class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center mr-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800" type="submit">Create a Row</button>
             </form>
         </ul>

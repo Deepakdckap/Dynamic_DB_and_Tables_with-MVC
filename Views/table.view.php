@@ -102,13 +102,14 @@
         </select>
     </div>
     <div>
+<!--        I have done the basic validation "No special characters are allowed to create the table name"-->
         <label>Table name</label>
-        <input type="text" placeholder="table-name" required name="table-name" pattern="[a-z,A-Z,_]*">
+        <input type="text" placeholder="table_name" required name="table-name" pattern="[a-z,A-Z,_]*">
     </div>
     <div class="filed">
         <div>
             <label>Column name</label>
-            <input type="text" placeholder="column name" required name="column-name[]">
+            <input type="text" placeholder="column_name" required name="column-name[]">
         </div>
         <div>
             <label>Datatype</label>
@@ -132,7 +133,7 @@
 
     let content = ` <div class="filed"> <div>
                <label>Column name</label>
-               <input type="text" placeholder="column Name" name="column-name[]" required>
+               <input type="text" placeholder="column_name" name="column-name[]" required>
                  </div>
             <div>
                 <label>Datatype</label>

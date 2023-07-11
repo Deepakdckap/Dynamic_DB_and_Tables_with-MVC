@@ -71,8 +71,8 @@ class Router
                      case 'createTable':
                          $this->controller->createTable($_POST);
                          break;
-                     case 'addRow':
-                         $this->controller->showRecordForm();
+                     case 'create_data':
+                         $this->controller->create_data($_POST);
                          break;
                     default :
                         $this->controller->index();

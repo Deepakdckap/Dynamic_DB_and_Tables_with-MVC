@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <title>Create DB</title>
@@ -88,18 +87,17 @@
         }
     </style>
 </head>
-
 <body>
 <div class="container">
     <h2 class="title">Create Your Database</h2>
     <form action="/createDB" method="post" enctype="multipart/form-data">
         <div class="form-group">
             <label for="dbname">Database Name:</label>
+<!--            I have done the basic validation of "No special characters are allowed, to create a DB". except based on the pattern."-->
             <input type="text" name="dbname" id="dbname" placeholder="DBName" pattern="[a-z,A-Z,_]*" required>
         </div>
         <button type="submit" class="button">Create DB</button>
     </form>
 </div>
 </body>
-
 </html>

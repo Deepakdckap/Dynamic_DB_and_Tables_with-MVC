@@ -23,6 +23,7 @@ class Controller
     {
         if ($dbName)
         {
+
             $this->userModel->createDB($dbName['dbname']);
             $_SESSION['dbname'] = $dbName['dbname'];
             header('location:/');
@@ -66,18 +67,28 @@ class Controller
         }
     }
 
-    public function getTableColumns($database, $table)
-    {
-        $this->createTable();
-        $query = "SHOW COLUMNS FROM `$database`.`$table`";
-        $result = $this->userModel->executeQuery($query);
-        return $result->fetchAll(PDO::FETCH_COLUMN);
+    public function getTable($dbname){
+        $tableName= $this->userModel->gettableondb($dbname);
+        echo json_encode($tableName);
     }
 
-    // This func is used to show a particular Row
-    public function showRecordForm()
-    {
-        $allDBs = $this->userModel->getDatabase();
-        require "Views/record.view.php";
+    public function getColumn($tablename){
+
+        $column = $this->userModel->gettingcolumndb($tablename['table'],$tablename['dbname']);
+
+        echo json_encode($column);
+
+    }
+    /**creating data dynamically by getting values in db**/
+    public  function  create_data($data){
+        if ($data){
+            $this->userModel->insertIntoTable($data);
+            header('location:/');
+        }
+        else{
+            $databaseList = $this->userModel->getDatabase();
+
+            require 'Views/columnData.view.php';
+        }
     }
 }
